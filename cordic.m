@@ -14,7 +14,6 @@ res_y = fi(0, 1, 32, 30);
 sign = fi(0, 1, 32, 30);
 x = fi(0, 1, 32, 30);
 y = fi(0, 1, 32, 30);
-ratio = fi(1, 1, 32, 30);
 
 for i = 1:size(lut, 1)
     if res_angle > 0
@@ -27,12 +26,9 @@ for i = 1:size(lut, 1)
     x = res_x;
     y = res_y;
     expo = fi(2^(-i+1), 1, 32, 30);
-    ratio = ratio * fi(cos(lut(i, 1)), 1, 32, 30);
     res_x = x - sign * expo * y;
     res_y = y + sign * expo * x;
 end
-% fprintf("K = %f\n", ratio);
-% ratio_re = fi(1/1.64676025812107, 1, 96, 90);
 ratio_re = fi(0.6072529350088812561694, 1, 32, 30);
 res_x = res_x * ratio_re;
 res_y = res_y * ratio_re;
