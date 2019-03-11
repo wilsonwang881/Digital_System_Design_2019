@@ -15,5 +15,5 @@ function MSE = Monte_Carlo_run(res_real, random_in)
         res_expe(i) = cos(double(single(random_in(i))));
     end
 
-    MSE = mean((res_expe - res_real).^2);
+    MSE = mean((res_expe - res_real_double).^2);
     

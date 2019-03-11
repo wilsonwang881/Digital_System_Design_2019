@@ -15,6 +15,8 @@ test_case3_out = resGen(test_case3_in);
 % the passed-in number is the length of the look up table
 lut = arctan_lut_gen(16);
 
+lut_bin = lut_to_bin(lut);
+
 % testing the CORDIC function defined in cordic.m
 input_angle = -0.5;
 res_x = cordic(lut, input_angle);
@@ -29,7 +31,7 @@ confidence_level_count = 0;
 
 for j = 1:loop_count
     fprintf("Loop number: %d/%d\n", j, loop_count);
-    iter_count = 1;
+    iter_count = 100;
     random_in = fi(zeros(iter_count, 1), 1, 32, 30);
     random_out = fi(zeros(iter_count, 1), 1, 32, 30);
 
