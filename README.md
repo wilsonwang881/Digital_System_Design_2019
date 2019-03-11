@@ -18,7 +18,7 @@ Confidence level of 95%
 
 1 bit for sign
 
-2 bits for integer parts
+1 bits for integer parts
 
 30 bits for decimal places
 
@@ -26,4 +26,4 @@ Confidence level of 95%
 
 The length is being changed to find the optimum with the best precision
 
-Currently, the length is changed to 16
+Currently, the length is 16
