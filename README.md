@@ -8,7 +8,7 @@ Use Monte Carlo simulation technique
 
 ## Expected Precision
 
-Mean square error (MSE) of 1^-10
+Mean square error (MSE) of $1^(-10)$
 
 Confidence level of 95%
 
