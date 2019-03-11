@@ -5,7 +5,7 @@ function lut = arctan_lut_gen(lim)
 % each row has two cells
 % the first cell is for storing the index of 2
 % the second cell is for storing the corresponding arctan value
-lut = fi(zeros(lim+1, 2), 1, 64, 60);
+lut = fi(zeros(lim+1, 2), 1, 64, 58);
 
 for i = 1:lim+1
     lut(i,1) = i-1;

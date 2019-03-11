@@ -1,5 +1,16 @@
 # Digital_System_Design_2019
+
 Coursework for DSD
+
+Based on CORDIC algorithm, using bit shifting, adding, subtraction and look up table
+
+Use Monte Carlo simulation technique
+
+## Expected Precision
+
+Mean square error (MSE) of 1^-10
+
+Confidence level of 95%
 
 ## Fixed Point Format
 
@@ -9,7 +20,7 @@ Coursework for DSD
 
 3 bits for integer parts
 
-60 bits for decimal places
+58 bits for decimal places
 
 ## Look Up Table
 
