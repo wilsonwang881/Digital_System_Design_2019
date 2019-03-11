@@ -10,7 +10,7 @@ test_case1_out = resGen(test_case1_in);
 test_case2_out = resGen(test_case2_in);
 test_case3_out = resGen(test_case3_in);
 
-lut = arctan_lut_gen(61);
+lut = arctan_lut_gen(18);
 
 input_angle = -0.5;
 res_x = cordic(lut, input_angle);
@@ -19,13 +19,13 @@ fprintf("input = %f\n", input_angle);
 fprintf("cos = %f\n", res_x);
 
 loop_count = 20;
-MSE_out = fi(zeros(loop_count, 1), 1, 64, 62);
+MSE_out = fi(zeros(loop_count, 1), 1, 64, 61);
 confidence_level_count = 0;
 
 for j = 1:loop_count
-    iter_count = 30;
-    random_in = fi(zeros(iter_count, 1), 1, 64, 62);
-    random_out = fi(zeros(iter_count, 1), 1, 64, 62);
+    iter_count = 50;
+    random_in = fi(zeros(iter_count, 1), 1, 64, 60);
+    random_out = fi(zeros(iter_count, 1), 1, 64, 60);
 
     for i = 1:iter_count
         random_in(i,1) = -1 + 2 * rand();
@@ -36,7 +36,7 @@ for j = 1:loop_count
 end
 
 for i = 1:loop_count
-    if MSE_out(i) <= 1*10^(-10)
+    if MSE_out(i) <= fi(1*10^(-10), 1, 64, 60)
         confidence_level_count  = confidence_level_count + 1;
     end
 end
