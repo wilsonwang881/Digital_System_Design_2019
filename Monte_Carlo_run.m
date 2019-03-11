@@ -7,7 +7,7 @@
 function [MSE, res_expe] = Monte_Carlo_run(res_real, random_in)
 
     iter_count = length(res_real);
-    res_expe = fi(zeros(iter_count, 1), 1, 64, 58);
+    res_expe = fi(zeros(iter_count, 1), 1, 96, 90);
 
     for i = 1:iter_count
         res_expe(i) = cos(random_in(i));

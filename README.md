@@ -8,19 +8,19 @@ Use Monte Carlo simulation technique
 
 ## Expected Precision
 
-Mean square error (MSE) of $1^(-10)$
+Mean square error (MSE) of 1*e-10
 
 Confidence level of 95%
 
 ## Fixed Point Format
 
-64-bit long
+96-bit long
 
 1 bit for sign
 
-3 bits for integer parts
+5 bits for integer parts
 
-58 bits for decimal places
+90 bits for decimal places
 
 ## Look Up Table
 
