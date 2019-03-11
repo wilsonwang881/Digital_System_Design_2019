@@ -20,7 +20,7 @@ Confidence level of 95%
 
 2 bits for integer parts
 
-29 bits for decimal places
+30 bits for decimal places
 
 ## Look Up Table
 

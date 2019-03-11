@@ -23,12 +23,13 @@ fprintf("input = %f\n", input_angle);
 fprintf("cos = %f\n", res_x);
 
 % calculating the confidence level
-loop_count = 50;
-MSE_out = fi(zeros(loop_count, 1), 1, 32, 30);
+loop_count = 100;
+MSE_out = zeros(loop_count, 1);
 confidence_level_count = 0;
 
 for j = 1:loop_count
-    iter_count = 50;
+    fprintf("Loop number: %d/%d\n", j, loop_count);
+    iter_count = 1;
     random_in = fi(zeros(iter_count, 1), 1, 32, 30);
     random_out = fi(zeros(iter_count, 1), 1, 32, 30);
 
@@ -37,11 +38,11 @@ for j = 1:loop_count
         random_out(i, 1) = cordic(lut, random_in(i, 1));
     end
 
-    [MSE_out(j), expe] = Monte_Carlo_run(random_out, random_in);
+    MSE_out(j) = Monte_Carlo_run(random_out, random_in);
 end
 
 for i = 1:loop_count
-    if MSE_out(i) <= fi(1*10^(-10), 1, 32, 30)
+    if MSE_out(i) <= 1*10^(-10)
         confidence_level_count  = confidence_level_count + 1;
     end
 end
