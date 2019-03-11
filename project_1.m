@@ -1,31 +1,36 @@
 clear
 clc
 
-
+% test cases
 test_case1_in = 0:5:255;
 test_case2_in = 0:1/8:255;
 test_case3_in = 0:1/1024:255;
 
+% get the double precision results for the test cases
 test_case1_out = resGen(test_case1_in);
 test_case2_out = resGen(test_case2_in);
 test_case3_out = resGen(test_case3_in);
 
-lut = arctan_lut_gen(17);
+% generate the look up table
+% the passed-in number is the length of the look up table
+lut = arctan_lut_gen(16);
 
+% testing the CORDIC function defined in cordic.m
 input_angle = -0.5;
 res_x = cordic(lut, input_angle);
 
 fprintf("input = %f\n", input_angle);
 fprintf("cos = %f\n", res_x);
 
-loop_count = 30;
-MSE_out = fi(zeros(loop_count, 1), 1, 96, 90);
+% calculating the confidence level
+loop_count = 50;
+MSE_out = fi(zeros(loop_count, 1), 1, 32, 30);
 confidence_level_count = 0;
 
 for j = 1:loop_count
-    iter_count = 30;
-    random_in = fi(zeros(iter_count, 1), 1, 96, 90);
-    random_out = fi(zeros(iter_count, 1), 1, 96, 90);
+    iter_count = 50;
+    random_in = fi(zeros(iter_count, 1), 1, 32, 30);
+    random_out = fi(zeros(iter_count, 1), 1, 32, 30);
 
     for i = 1:iter_count
         random_in(i,1) = -1 + 2 * rand();
@@ -36,7 +41,7 @@ for j = 1:loop_count
 end
 
 for i = 1:loop_count
-    if MSE_out(i) <= fi(1*10^(-10), 1, 96, 90)
+    if MSE_out(i) <= fi(1*10^(-10), 1, 32, 30)
         confidence_level_count  = confidence_level_count + 1;
     end
 end

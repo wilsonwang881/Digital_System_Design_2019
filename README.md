@@ -14,14 +14,16 @@ Confidence level of 95%
 
 ## Fixed Point Format
 
-96-bit long
+32-bit long
 
 1 bit for sign
 
-5 bits for integer parts
+2 bits for integer parts
 
-90 bits for decimal places
+29 bits for decimal places
 
 ## Look Up Table
 
 The length is being changed to find the optimum with the best precision
+
+Currently, the length is changed to 16

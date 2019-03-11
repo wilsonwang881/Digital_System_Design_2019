@@ -7,11 +7,14 @@
 function [MSE, res_expe] = Monte_Carlo_run(res_real, random_in)
 
     iter_count = length(res_real);
-    res_expe = fi(zeros(iter_count, 1), 1, 96, 90);
+    res_real_double = zeros(iter_count, 1);
+    res_expe = zeros(iter_count, 1);
 
     for i = 1:iter_count
+        dummy = res_real(i);
+        res_real_double(i) = double(single(dummy));
         res_expe(i) = cos(random_in(i));
     end
 
-    MSE = mean((res_expe - res_real).^2);
+    MSE = fi(mean((res_expe - res_real).^2), 1, 32, 30);
     
