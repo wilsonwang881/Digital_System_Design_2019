@@ -1,9 +1,0 @@
-F = fimath('RoundingMethod', 'Nearest',...
-'OverflowAction', 'Saturate',...
-'ProductMode','FullPrecision',...
-'SumMode','FullPrecision') 
-T = numerictype('Signed', true, 'FractionLength', 14)
-y = 2.328306437*10^(-10)
-x1 = fi (0.9999,1,32,30);
-x2 = fi(0.11112, 1, 32, 30);
-x3 = x2 * 4;
