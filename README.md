@@ -78,4 +78,6 @@ Flow control, run each functions in a series
 
 Generate the standard MATLAB results of different test cases
 
+## fi_to_float_converter
 
+Convert fixed-point numbers to float numbers
